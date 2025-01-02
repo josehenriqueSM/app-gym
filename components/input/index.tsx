@@ -1,11 +1,17 @@
+import React from "react";
 import { TextInput } from "react-native";
 
-export function Input() {
+interface InputProps {
+  placeholder: string;
+  handleOnChageText: (data: string) => void;
+}
+
+export default function Input({ handleOnChageText, placeholder }: InputProps) {
   return (
     <TextInput
-    //   value={text}
-      placeholder="E-mail"
-      className="h-14 w-full border p-[10px] bg-secondary color-textinput rounded-lg my-[10px]"
-    ></TextInput>
+      onChangeText={(value) => handleOnChageText(value)}
+      placeholder={placeholder}
+      className="h-14 w-full p-2.5 bg-secondary color-textinput rounded-lg my-2.5"
+    />
   );
 }
